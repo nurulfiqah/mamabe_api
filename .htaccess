@@ -8,3 +8,8 @@
         Deny from all
     </IfModule>
 </FilesMatch>
+
+# The server copy is a git clone: never serve the .git folder (FilesMatch above only checks file names, not folders)
+<IfModule mod_alias.c>
+    RedirectMatch 404 /\.git(/|$)
+</IfModule>
