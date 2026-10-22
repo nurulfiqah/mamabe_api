@@ -1,0 +1,75 @@
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.navigationTabs {
+	height: 23px;
+	line-height: 23px;
+	border-bottom: 1px solid #ccc;
+}
+.navigationTabs li {
+	float: left;
+	height: 23px;
+	line-height: 23px;
+	padding-right: 3px;
+}
+.navigationTabs li a{
+	float: left;
+	display: block;
+	height: 23px;
+	line-height: 23px;
+	padding: 0 10px;
+	overflow: hidden;
+	color: #52697E;
+	background-color: #eee;
+	position: relative;
+	text-decoration: none;
+}
+.navigationTabs li a:hover {
+	background-color: #f0f0f0;
+}
+.navigationTabs li a.active {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-bottom: 0px solid;
+}
+.tabsContent {
+	border: 1px solid #ccc;
+	border-top: 0px solid;
+	width: 100%;
+	overflow: hidden;
+}
+.tab {
+	padding: 16px;
+	display: none;
+}
+.tab h2 {
+	font-weight: bold;
+	font-size: 16px;
+}
+.tab h3 {
+	font-weight: bold;
+	font-size: 14px;
+	margin-top: 20px;
+}
+.tab p {
+	margin-top: 16px;
+	clear: both;
+}
+.tab ul {
+	margin-top: 16px;
+	list-style: disc;
+}
+.tab li {
+	margin: 10px 0 0 35px;
+}
+
+.tab pre {
+	font-size: 11px;
+	margin-top: 20px;
+	width: 668px;
+	overflow: auto;
+	clear: both;
+}

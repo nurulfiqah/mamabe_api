@@ -1,0 +1,180 @@
+/* MamaBe public registration form - customer-facing layer on top of odb's shared framework CSS
+   (css/layout.css, page.css, alpro-core/components/utils.css, copied from odb/common/css). */
+
+[hidden] { display: none !important; }
+
+/* ── Public form (form.php) - customer-facing ─────────────────────────────── */
+:root { --mamabe-teal: #1bb8d4; --mamabe-teal-dark: #0e8fa6; --mamabe-teal-soft: #e8f8fb; --mamabe-pink: #ff6b9d; }
+.mamabe-public-body { width: auto; margin: 0; padding: 0 16px; background: linear-gradient(180deg, var(--mamabe-teal-soft) 0, var(--alpro-bg) 320px); min-height: 100vh; }
+.mamabe-public { max-width: 640px; margin: 0 auto; padding: 28px 0 40px; text-align: left; }
+
+.mamabe-hero { text-align: center; margin-bottom: 20px; }
+.mamabe-hero-title { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px; }
+.mamabe-hero img { height: 34px; width: auto; }
+.mamabe-hero h1 { font-family: var(--alpro-font); font-size: 18px; font-weight: bold; color: var(--alpro-text); margin: 0; }
+.mamabe-hero p { margin: 0; color: var(--alpro-muted); font-size: 15px; }
+
+.mamabe-card { background: #fff; border-radius: 16px; box-shadow: var(--alpro-shadow); padding: 24px; }
+
+.mamabe-step { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 16px; margin: 26px 0 12px; }
+#mamabeForm > .mamabe-step:first-child { margin-top: 0; }
+.mamabe-step span:first-child {
+    display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--mamabe-teal); color: #fff; font-size: 14px; flex-shrink: 0;
+}
+.mamabe-public .alpro-field label { font-size: 14px; }
+.mamabe-hint { font-weight: normal; color: var(--alpro-muted); font-size: 13px; margin-left: 4px; }
+.mamabe-required { color: var(--mamabe-error, #d93025); font-weight: bold; }
+.mamabe-public .alpro-input { min-height: 46px; border-radius: 10px; font-size: 16px; }   /* 16px: iPhone won't zoom on focus */
+.mamabe-public .alpro-input:focus { border-color: var(--mamabe-teal); box-shadow: 0 0 0 3px rgba(27,184,212,.18); }
+.mamabe-help { margin: 0 0 12px; color: var(--alpro-muted); font-size: 14px; line-height: 1.5; }
+
+.mamabe-mb { margin-bottom: 14px; }
+.mamabe-public select.alpro-input { height: 46px; padding: 0 10px; }
+.mamabe-public textarea.mamabe-textarea { min-height: 84px; resize: vertical; font-family: var(--alpro-font); line-height: 1.5; }
+.mamabe-optional { font-style: normal; font-weight: normal; font-size: 13px; color: var(--alpro-muted); }
+.mamabe-path { border: 0; padding: 0; margin: 0; min-width: 0; }
+
+/* Step 1: pink book / baby health book / both - big radio cards (the whole card is the tap target) */
+.mamabe-choices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.mamabe-choice {
+    position: relative; display: flex; flex-direction: column; gap: 4px; padding: 14px 14px 14px 44px; cursor: pointer;
+    border: 2px solid var(--alpro-border-soft, #e3e8ee); border-radius: 14px; background: #fff; transition: border-color .15s, background .15s;
+}
+.mamabe-choice input { position: absolute; left: 14px; top: 16px; width: 18px; height: 18px; margin: 0; accent-color: var(--mamabe-teal); }
+.mamabe-choice b { font-size: 16px; }
+.mamabe-choice small { font-size: 13px; color: var(--alpro-muted); line-height: 1.4; }
+.mamabe-choice small .mamabe-hint { display: block; margin-left: 0; }
+.mamabe-choice-pink b { color: var(--mamabe-pink); }
+.mamabe-choice-baby b { color: var(--mamabe-teal-dark); }
+.mamabe-choice-both b { color: var(--alpro-text); }
+.mamabe-choice-pink input { accent-color: var(--mamabe-pink); }
+.mamabe-choice-pink:has(input:checked) { border-color: var(--mamabe-pink); background: #fff2f7; }
+.mamabe-choice-baby:has(input:checked) { border-color: var(--mamabe-teal); background: var(--mamabe-teal-soft); }
+.mamabe-choice-both:has(input:checked) { border-color: var(--alpro-text); background: #f2f2f5; }
+.mamabe-choice:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(27,184,212,.25); }
+
+/* "How do you know us?" - radio chips */
+.mamabe-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.mamabe-chip { position: relative; cursor: pointer; }
+.mamabe-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.mamabe-chip span {
+    display: inline-block; padding: 10px 16px; border: 1px solid #cfd8e0; border-radius: 999px; background: #fff;
+    font-size: 15px; font-weight: normal; transition: border-color .15s, background .15s;
+}
+.mamabe-chip input:checked + span { border-color: var(--mamabe-teal); background: var(--mamabe-teal-soft); color: var(--mamabe-teal-dark); font-weight: bold; }
+.mamabe-chip input:focus-visible + span { box-shadow: 0 0 0 3px rgba(27,184,212,.25); }
+
+/* "She has twins?" toggle above the twin's details fieldset */
+.mamabe-checkbox { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 15px; }
+.mamabe-checkbox input { width: 20px; height: 20px; margin: 0; accent-color: var(--mamabe-teal); flex-shrink: 0; }
+/* Pink = mama's pink book, baby blue = baby's health book - so the two sections are easy to tell apart */
+#path_pink { background: #fff5f9; border-left: 4px solid var(--mamabe-pink); border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+#path_pink .mamabe-drop { border-color: #f4b6cf; background: #fff; }
+#path_pink .mamabe-drop:hover, #path_pink .mamabe-drop.is-drag { border-color: var(--mamabe-pink); background: #fff5f9; }
+#path_baby { background: var(--mamabe-teal-soft); border-left: 4px solid var(--mamabe-teal); border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+#path_baby .mamabe-drop { border-color: #9edbe8; background: #fff; }
+#path_baby .mamabe-drop:hover, #path_baby .mamabe-drop.is-drag { border-color: var(--mamabe-teal); background: #f0fbfd; }
+#path_twin { padding-top: 6px; border-top: 1px dashed var(--alpro-border-soft, #e3e8ee); margin-top: 6px; }
+#path_twin .mamabe-step { margin-top: 18px; }
+
+/* Missing / wrong fields after Submit: red border + "⚠ message" under the field (form.php markField) */
+:root { --mamabe-error: #d93025; --mamabe-error-soft: #fff4f3; }
+.mamabe-field-error { margin-top: 6px; color: var(--mamabe-error); font-size: 13px; font-weight: bold; line-height: 1.4; }
+.mamabe-field-error::before { content: "\26A0\FE0E  "; }
+.mamabe-invalid .alpro-input,
+.mamabe-public .mamabe-invalid .alpro-input:focus { border-color: var(--mamabe-error); background: var(--mamabe-error-soft); }
+.mamabe-public .mamabe-invalid .alpro-input:focus { box-shadow: 0 0 0 3px rgba(217,48,37,.15); }
+.alpro-field.mamabe-invalid > label, .alpro-field.mamabe-invalid > label .mamabe-hint { color: var(--mamabe-error); }
+.mamabe-choices.mamabe-invalid .mamabe-choice,
+.mamabe-invalid .mamabe-chip span { border-color: var(--mamabe-error); background: var(--mamabe-error-soft); }
+.mamabe-drop.mamabe-invalid { border-color: var(--mamabe-error); background: var(--mamabe-error-soft); }
+.mamabe-drop.mamabe-invalid + .mamabe-field-error { margin: -2px 0 8px; }
+
+.mamabe-upload-label { display: block; font-weight: bold; font-size: 14px; margin: 4px 0 4px; }
+/* "Take a photo" / "Gallery" buttons inside the one upload box (Take a photo = the main one) */
+.mamabe-drop-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.mamabe-drop-choice {
+    display: inline-flex; align-items: center; gap: 6px; background: var(--mamabe-teal); color: #fff; border: 1px solid var(--mamabe-teal);
+    border-radius: 999px; padding: 10px 18px; font-size: 15px; font-weight: bold; transition: background .15s;
+}
+.mamabe-drop-choice:hover, .mamabe-drop-choice:focus { background: var(--mamabe-teal-dark); }
+.mamabe-drop-choice-alt { background: #fff; color: var(--mamabe-teal-dark); }
+.mamabe-drop-choice-alt:hover { background: var(--mamabe-teal-soft); }
+.mamabe-upload-actions { display: flex; gap: 16px; margin-bottom: 14px; }
+
+/* Upload box: the real file input is visually hidden; the label is the tap target */
+.mamabe-file { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+.mamabe-drop {
+    display: block; border: 2px dashed #b9dde6; border-radius: 14px; background: #fafdfe; padding: 26px 16px;
+    text-align: center; cursor: pointer; transition: border-color .15s, background .15s;
+}
+.mamabe-drop:hover, .mamabe-drop.is-drag, .mamabe-file:focus + .mamabe-drop { border-color: var(--mamabe-teal); background: var(--mamabe-teal-soft); }
+.mamabe-drop.has-file { border-style: solid; border-color: var(--mamabe-teal); padding: 12px; }
+.mamabe-drop-empty, .mamabe-drop-filled { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.mamabe-drop-icon { font-size: 34px; line-height: 1; }
+.mamabe-drop-empty b { color: var(--mamabe-teal-dark); font-size: 16px; }
+.mamabe-drop-empty small { color: var(--alpro-muted); font-size: 13px; }
+.mamabe-drop-filled img { max-width: 100%; max-height: 260px; border-radius: 8px; object-fit: contain; }
+.mamabe-drop-change { color: var(--mamabe-teal-dark); font-weight: bold; font-size: 14px; }
+.mamabe-link { background: none; border: 0; padding: 6px 0; color: var(--mamabe-teal-dark); font-size: 14px; text-decoration: underline; cursor: pointer; }
+.mamabe-link-muted { color: var(--alpro-muted); }
+
+.mamabe-tip { margin: 4px 0 20px; padding: 10px 12px; border-radius: 10px; background: #fff8e6; border: 1px solid #ffe2a3; font-size: 14px; line-height: 1.5; }
+
+.mamabe-public .alpro-alert { margin: 0 0 12px; font-size: 14px; line-height: 1.5; }
+.mamabe-submit {
+    display: block; width: 100%; padding: 10px; font-size: 15px; border-radius: 10px;
+    background: var(--mamabe-teal); border-color: var(--mamabe-teal); color: #fff;
+}
+.mamabe-submit:hover { background: var(--mamabe-teal-dark); border-color: var(--mamabe-teal-dark); filter: none; }
+.alpro-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.mamabe-done { text-align: center; padding: 36px 24px; }
+.mamabe-done-mark {
+    display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%;
+    background: #e8fff1; color: #128C7E; font-size: 36px;
+}
+.mamabe-done h2 { font-family: var(--alpro-font); font-size: 22px; font-weight: bold; margin: 14px 0 6px; }
+.mamabe-done p { color: var(--alpro-muted); margin: 0 0 14px; }
+.mamabe-done-note {
+    color: #333 !important; font-size: 14px; text-align: center; margin: 0 0 22px !important;
+}
+.mamabe-done .alpro-btn { padding: 10px 18px; border-radius: 10px; }
+
+.mamabe-redeem-guide { margin: 0 0 22px; text-align: center; }
+.mamabe-redeem-guide-caption {
+    color: var(--alpro-muted) !important; font-size: 13px; font-weight: bold; text-transform: uppercase;
+    letter-spacing: .04em; margin: 0 0 10px !important;
+}
+.mamabe-redeem-guide img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+
+/* Honeypot: real users never see or reach it; bots fill it. Off-screen rather than display:none, which bots skip. */
+.mamabe-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 600px) {
+    .mamabe-public { padding-top: 20px; }
+    .mamabe-hero img { height: 30px; }
+    .mamabe-hero h1 { font-size: 17px; }
+    .mamabe-card { padding: 18px; border-radius: 14px; }
+}
+@media (max-width: 480px) {
+    .mamabe-choices { grid-template-columns: 1fr; }
+}
+
+/* ── Click-to-enlarge viewer ──────────────────────────────────────────────── */
+.mamabe-lightbox {
+    position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,.6);
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.mamabe-lightbox[hidden] { display: none; }
+.mamabe-lightbox-box {
+    background: #fff; border-radius: var(--alpro-radius); box-shadow: var(--alpro-shadow);
+    max-width: 95vw; max-height: 95vh; display: flex; flex-direction: column; overflow: hidden;
+}
+.mamabe-lightbox-head {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 10px 14px; border-bottom: 1px solid var(--alpro-border-soft); text-align: left;
+}
+.mamabe-lightbox-body { overflow: auto; padding: 10px; text-align: center; }
+.mamabe-lightbox-body img { max-width: 100%; height: auto; }

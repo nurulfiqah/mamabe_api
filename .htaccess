@@ -1,0 +1,10 @@
+# Docs, editor files and dotfiles are for developers only - never serve them from the public site.
+<FilesMatch "(^\.|\.(md|code-workspace|env|local|log)$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

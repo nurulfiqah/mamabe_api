@@ -1,0 +1,133 @@
+/* ===============================
+   ALPRO COMPONENTS v1.0
+   Buttons, forms, alerts, table helpers
+   =============================== */
+
+/* Layout */
+.alpro-grid{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:flex-end;
+}
+
+.alpro-field{
+  flex:1;
+  min-width:220px;
+}
+
+.alpro-field label{
+  display:block;
+  font-weight:bold;
+  margin:0 0 6px 0;
+}
+
+/* Inputs */
+.alpro-input{
+  width:100%;
+  box-sizing:border-box;
+  padding:8px 10px;
+  border:1px solid #cfcfcf;
+  border-radius: var(--alpro-radius-sm);
+  height:auto;
+  min-height: 38px;
+  line-height: 1.5;
+  font-size: 15px;
+  background:#fff;
+}
+
+.alpro-input:focus{
+  outline:none;
+  border-color: rgba(0,91,150,.55);
+  box-shadow: 0 0 0 3px rgba(0,91,150,.12);
+}
+
+select.alpro-input {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 38px;
+}
+
+/* Actions row */
+.alpro-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* Buttons */
+.alpro-btn{
+  cursor:pointer;
+  padding:8px 12px;
+  border-radius: var(--alpro-radius-sm);
+  border:1px solid #cfcfcf;
+  background:#f7f7f7;
+  font-weight:bold;
+  line-height:1.2;
+}
+
+.alpro-btn:hover{ filter: brightness(.98); }
+.alpro-btn:active{ transform: translateY(1px); }
+
+.alpro-btn-blue{
+  background: var(--alpro-blue);
+  color:#fff;
+  border-color: var(--alpro-blue);
+}
+
+.alpro-btn-orange{
+  background: var(--alpro-orange);
+  color:#fff;
+  border-color: var(--alpro-orange);
+}
+
+.alpro-btn-grey{
+  background: #e9ecef;
+  color:#111;
+  border-color: #d0d7de;
+}
+
+.alpro-btn-green{
+  background: #128C7E;
+  color:#fff;
+  border-color: #128C7E;
+}
+
+/* Alerts */
+.alpro-alert{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius: var(--alpro-radius-sm);
+  border:1px solid var(--alpro-border-soft);
+}
+
+.alpro-success{
+  background:#e8fff1;
+  border-color:#b7f2ce;
+}
+
+.alpro-danger{
+  background:#ffecec;
+  border-color:#ffbdbd;
+}
+
+.alpro-warn{
+  background:#fff8e6;
+  border-color:#ffe2a3;
+}
+
+/* Table helpers (use alongside .myTable) */
+.alpro-table th,
+.alpro-table td{
+  padding:8px;
+}
+
+.alpro-table th{
+  font-weight:bold;
+}
+
+/* Useful formatting */
+.alpro-mono{
+  font-family: Consolas, "Courier New", monospace;
+  font-size:12px;
+}

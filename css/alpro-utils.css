@@ -1,0 +1,25 @@
+/* ===============================
+   ALPRO UTILS v1.0
+   Small helpers (spacing, alignment, text)
+   =============================== */
+
+.alpro-mt-6{ margin-top:6px; }
+.alpro-mt-10{ margin-top:10px; }
+.alpro-mt-20{ margin-top:20px; }
+
+.alpro-mb-6{ margin-bottom:6px; }
+.alpro-mb-10{ margin-bottom:10px; }
+.alpro-mb-20{ margin-bottom:20px; }
+
+.alpro-center{ text-align:center; }
+.alpro-right{ text-align:right; }
+.alpro-left{ text-align:left; }
+
+.alpro-muted{ color: var(--alpro-muted); }
+.alpro-w-100{ width:100%; }
+
+.alpro-inline{ display:inline-block; }
+.alpro-flex{ display:flex; }
+.alpro-gap-8{ gap:8px; }
+.alpro-gap-10{ gap:10px; }
+.alpro-wrap{ flex-wrap:wrap; }

@@ -1,0 +1,11 @@
+# Secrets - odb API credentials, never commit (any .env / .env.* in any folder, e.g. api/.env, api/.env.local)
+.env
+.env.*
+*.env
+
+# Logs (PHP error_log may hold request details)
+*.log
+
+# Local editor/OS junk
+.DS_Store
+Thumbs.db

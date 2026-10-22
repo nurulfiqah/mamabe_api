@@ -1,0 +1,10 @@
+# api/.env holds the odb api_user password: never serve it (or any other dotfile / non-PHP file here).
+<FilesMatch "^\.|\.(env|local|log|txt|md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

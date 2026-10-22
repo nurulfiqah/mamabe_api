@@ -1,0 +1,374 @@
+/* =========================
+   GLOBAL BASE
+========================= */
+body {
+  text-align: center; /* legacy behavior kept */
+  color: #333333;
+  padding: 0px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+body { color: black; }
+
+html, body, p, dl, dt, div, span, td, input, th {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+table td {
+  padding: 0 0 10px 0;
+  color: #333333;
+}
+
+fieldset {
+  text-align: left;
+  clear: both; /* IMPORTANT: prevent overlap with paginator */
+}
+
+.center { text-align: center; }
+
+p { margin: 0; padding: 0; }
+
+img { border-style: none; }
+
+legend { color: black; }
+
+input[type="radio"] { border: none; }
+
+/* =========================
+   LINKS
+========================= */
+a:hover {
+  border-bottom: 1px dotted #000000;
+  color: #000000;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+input,
+select {
+  text-align: left; /* override body center */
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #abadb3 #dbdfe6 #e3e9ef #e2e3ea;
+  padding: 4px;
+  vertical-align: bottom;
+  box-sizing: border-box;
+}
+
+select {
+  width: auto;
+  padding: 1px;
+  height: 26px;
+}
+
+input:focus,
+input:hover,
+select:focus,
+select:hover {
+  border-color: #5794bf #b7d5ea #c7e2f1 #c5daed;
+}
+
+/* =========================
+   HEADER (GLOBAL)
+========================= */
+.header,
+b.rtop b,
+b.rbottom b {
+  background: #090909;
+}
+
+.header {
+  margin: 10px 0 18px;
+  padding: 14px 22px;
+  background: linear-gradient(90deg, #003B73, #0A5AA8); /* Alpro Blue */
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 59, 115, 0.28);
+  display: flex;
+  align-items: center;
+}
+
+/* hide legacy rounded helpers */
+.header .rtop,
+.header .rbottom {
+  display: none !important;
+}
+
+h1,
+.headerH1 {
+  font-size: 18px;
+  margin: 2px 0;
+  font-family: Verdana;
+  font-weight: normal;
+}
+
+.headerH1 {
+  color: #ffffff;
+  text-align: left !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerH1 img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* =========================
+   TABLE HEADERS (GLOBAL)
+========================= */
+th {
+  background-color: rgb(153, 153, 255);
+  text-align: center;
+}
+
+/* =========================
+   STAFF TABLE (myTable)
+   Safe override – affects staff list only
+========================= */
+table.myTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 12px;
+}
+
+table.myTable th,
+table.myTable td {
+  padding: 6px 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* override purple header ONLY for staff table */
+table.myTable th {
+  background: #f3f4f6 !important;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+table.myTable tr {
+  background-color: #ffffff;
+}
+
+table.myTable tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+table.myTable tr:hover {
+  background-color: #fff7ed;
+}
+
+table.myTable a {
+  color: #0f172a;
+  text-decoration: none;
+}
+
+table.myTable a:hover {
+  color: #F37021;
+  text-decoration: underline;
+}
+
+/* =========================
+   PAGINATOR / FILTER BAR
+========================= */
+.paginator0,
+.paginator,
+.paginator2,
+.paginator3 {
+  font-size: 12px;
+  color: #4b5563;
+  margin: 4px 4px 10px 0;
+}
+
+.paginator {
+  display: inline-block;
+}
+
+.paginator img {
+  vertical-align: middle;
+}
+
+.paginator select {
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+}
+
+.paginator select:focus {
+  border-color: #F37021;
+  box-shadow: 0 0 0 2px rgba(243,112,33,0.18);
+}
+
+.paginator2 {
+  display: inline-block;
+  color: #6b7280;
+}
+
+.paginator3 {
+  float: right;
+  text-align: right;
+}
+
+.paginator3 form {
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.paginator3 select,
+.paginator3 input[type="text"] {
+  font-size: 12px;
+  padding: 3px 6px;
+  margin-left: 4px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  text-align: left;
+}
+
+.paginator3 input[type="text"] {
+  min-width: 180px;
+}
+
+.paginator3 select:focus,
+.paginator3 input[type="text"]:focus {
+  border-color: #F37021;
+  box-shadow: 0 0 0 2px rgba(243,112,33,0.18);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.green.button,
+.red.button,
+#print_label {
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.green.button {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.red.button {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+#print_label {
+  background: #F37021;
+  color: #ffffff;
+}
+
+.green.button:hover { background: #15803d; }
+.red.button:hover { background: #b91c1c; }
+#print_label:hover { background: #e16218; }
+
+/* =========================
+   DROPDOWN + BADGE
+========================= */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 250px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
+}
+
+.dropdown a:hover { background-color: #ddd; }
+
+.show { display: block; }
+
+.dropbtn { border: 0; }
+
+.badge {
+  position: absolute;
+  top: 0px;
+  right: -2px;
+  padding: 0.2px 5px;
+  border-radius: 70%;
+  background: red;
+  font-weight: bold;
+  color: white;
+}
+
+/* =========================
+   CLOCK BOX
+========================= */
+.clockBox {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #F37021;
+  background: #fff7ed;
+  border-radius: 6px;
+  border: 1px solid #F37021;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .paginator0,
+  .paginator,
+  .paginator2,
+  .paginator3 {
+    display: block;
+    float: none;
+    text-align: left;
+  }
+
+  .paginator3 {
+    margin-top: 6px;
+  }
+
+  .paginator3 form {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .paginator3 input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 6px;
+  }
+
+  .paginator3 select {
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
+
+
+
+

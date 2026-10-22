@@ -1,0 +1,55 @@
+/* ===============================
+   ALPRO CORE v1.0
+   Base tokens + safe defaults
+   Works with legacy layout.css/page.css
+   =============================== */
+
+:root{
+  --alpro-blue:#005B96;
+  --alpro-orange:#F37021;
+  --alpro-dark:#0b1220;
+  --alpro-bg:#f6f8fb;
+
+  --alpro-text:#111827;
+  --alpro-muted:#6b7280;
+
+  --alpro-border:#d9d9d9;
+  --alpro-border-soft:#e9ecef;
+
+  --alpro-radius:10px;
+  --alpro-radius-sm:8px;
+
+  --alpro-shadow:0 6px 18px rgba(0,0,0,.06);
+  --alpro-shadow-sm:0 3px 10px rgba(0,0,0,.05);
+
+  --alpro-font: Arial, Helvetica, sans-serif;
+}
+
+body{
+  font-family: var(--alpro-font);
+  color: var(--alpro-text);
+  background: var(--alpro-bg);
+}
+
+/* Keep anchors consistent with legacy pages */
+a{ color: var(--alpro-blue); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* Optional: make common form controls look consistent without breaking legacy */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea{
+  font-family: var(--alpro-font);
+}
+
+/* Primary container “card” */
+.alpro-box{
+  background:#fff;
+  border:1px solid var(--alpro-border);
+  border-radius: var(--alpro-radius);
+  box-shadow: var(--alpro-shadow);
+  padding:14px;
+}
